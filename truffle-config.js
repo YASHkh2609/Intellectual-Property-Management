@@ -58,10 +58,12 @@
 // require('dotenv').config();
 // const { MNEMONIC, PROJECT_ID } = process.env;
 
-// const HDWalletProvider = require('@truffle/hdwallet-provider');
-
 const HDWalletProvider = require('@truffle/hdwallet-provider');
-const mnemonic = 'expect dose shallow object during water identify yellow bind copy ship wolf';
+require('dotenv').config();
+const { API_URL, PRIVATE_KEY } = process.env;
+
+// const HDWalletProvider = require('@truffle/hdwallet-provider');
+// const mnemonic = 'expect dose shallow object during water identify yellow bind copy ship wolf';
 
 module.exports = {
   /**
@@ -87,14 +89,22 @@ module.exports = {
     //  network_id: "5777"       // Any network (default: none)
     // },
     sepolia: {
-      provider: () => new HDWalletProvider(mnemonic, 'https://sepolia.infura.io/v3/2c39f8c75be24f9b8d4eb063329c5a10'),
-      network_id: 11155111, // Sepolia's network id
-      gas: 5500000, // Gas limit
-      gasPrice: 10000000000, // 10 gwei (in wei)
-      confirmations: 2, // Number of confirmations to wait before deployment is considered successful
-      timeoutBlocks: 200, // Number of blocks before a deployment times out
-      skipDryRun: true // Skip dry run before migrations? (default: false for public nets )
-  },
+      provider: () => new HDWalletProvider({
+      mnemonic: {
+      phrase: "expect dose shallow object during water identify yellow bind copy ship wolf"
+      },
+      providerOrUrl: "https://sepolia.infura.io/v3/2c39f8c75be24f9b8d4eb063329c5a10",
+      accounts: [`0x${PRIVATE_KEY}`]
+
+      }),
+      network_id: 11155111, // Sepolia's network ID
+      gas: 4000000, // Adjust the gas limit as per your requirements
+      gasPrice: 10000000000, // Set the gas price to an appropriate value
+      confirmations: 2, // Set the number of confirmations needed for a transaction
+      timeoutBlocks: 100000, // Set the timeout for transactions
+      skipDryRun: true, // Skip the dry run option
+      networkCheckTimeout: 1000000
+     },
     //
     // An additional network, but with some advanced options…
     // advanced: {

@@ -8,26 +8,35 @@
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/4.7.0/web3.min.js"></script>
 </head>
+
 <body>
 
     <h1>Intellectual Property Management</h1>
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <a href="#ipRegistrationForm">Register IP</a>
+        <a href="#ownershipTransferForm">Transfer Ownership</a>
+        <a href="#ipRecordLookupForm">Lookup IP Record</a>
+    </div>
+    <img height="540" width="1479" src="img.jpg" alt="Intellectual Property" class="image">
     <!-- IP Registration Form -->
-    <div id="ipRegistrationForm">
+    <div id="ipRegistrationForm" class="form-section">
         <h2>Register Intellectual Property</h2>
-        <label for="Owner">Owner:</label>
-        <input type="text" id="Owner" name="Owner" required><br>
+        <!-- <label for="Owner">Owner:</label>
+        <input type="text" id="Owner" name="Owner" required><br> -->
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required><br>
         <label for="description">Description:</label>
         <textarea id="description" name="description" required></textarea><br>
-        <button onclick="register_IP()" > Register IP </button>
+        <button onclick="register_IP()"> Register IP </button>
     </div>
 
     <!-- Ownership Transfer Form -->
-    <div id="ownershipTransferForm">
+    <div id="ownershipTransferForm" class="form-section">
         <h2>Transfer Ownership</h2>
-        <label for="owner">Owner:</label>
-        <input type="text" id="owner" name="owner" required><br>
+        <!-- <label for="owner">Owner:</label>
+        <input type="text" id="owner" name="owner" required><br> -->
         <label for="ipId">IP ID:</label>
         <input type="number" id="ipId" name="ipId" required><br>
         <label for="newOwner">New Owner:</label>
@@ -36,14 +45,34 @@
     </div>
 
     <!-- IP Record Lookup Form -->
-    <div id="ipRecordLookupForm">
+    <div id="ipRecordLookupForm" class="form-section">
         <h2>Lookup IP Record</h2>
         <label for="lookupIpId">IP ID:</label>
         <input type="number" id="lookupIpId" name="lookupIpId" required><br>
         <button onclick="get_IPRecord()">Lookup IP Record</button>
     </div>
-    <script src="script1.js"></script>
 
+    <!-- Team Segment -->
+    <div class="team-section">
+        <h2 style="text-align: center;">Our Team</h2>
+        <div class="team-members">
+            <div class="team-member">
+                <h3>Yash R. Khandelwal</h3>
+                <!-- <p>Lead Developer</p> -->
+            </div>
+            <div class="team-member">
+                <h3>Eshanth Patyal</h3>
+                <!-- <p>Designer</p> -->
+            </div>
+            <div class="team-member">
+                <h3>Abhay Deep Chaudhary</h3>
+                <!-- <p>Project Manager</p> -->
+            </div>
+        </div>
+    </div>
+
+
+    <script src="script1.js"></script>
 </body>
 
 </html>

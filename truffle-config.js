@@ -60,6 +60,9 @@
 
 // const HDWalletProvider = require('@truffle/hdwallet-provider');
 
+const HDWalletProvider = require('@truffle/hdwallet-provider');
+const mnemonic = 'expect dose shallow object during water identify yellow bind copy ship wolf';
+
 module.exports = {
   /**
    * Networks define how you connect to your ethereum client and let you set the
@@ -80,9 +83,18 @@ module.exports = {
     //
     // development: {
     //  host: "127.0.0.1",     // Localhost (default: none)
-    //  port: 8545,            // Standard Ethereum port (default: none)
-    //  network_id: "*",       // Any network (default: none)
+    //  port: 7545,            // Standard Ethereum port (default: none)
+    //  network_id: "5777"       // Any network (default: none)
     // },
+    sepolia: {
+      provider: () => new HDWalletProvider(mnemonic, 'https://sepolia.infura.io/v3/2c39f8c75be24f9b8d4eb063329c5a10'),
+      network_id: 11155111, // Sepolia's network id
+      gas: 5500000, // Gas limit
+      gasPrice: 10000000000, // 10 gwei (in wei)
+      confirmations: 2, // Number of confirmations to wait before deployment is considered successful
+      timeoutBlocks: 200, // Number of blocks before a deployment times out
+      skipDryRun: true // Skip dry run before migrations? (default: false for public nets )
+  },
     //
     // An additional network, but with some advanced options…
     // advanced: {
